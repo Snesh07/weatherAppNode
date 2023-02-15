@@ -165,7 +165,7 @@
         color: #57606f;
     }
 
-    #weatherIcon {
+    #weathercon {
         height: 55%;
         display: flex;
         justify-content: center;
@@ -173,7 +173,7 @@
         font-size: 3rem;
     }
 
-    #weatherIcon .fa-sun {
+    #weathercon .fa-sun .fa-cloud .fa-cloud-rain{
         font-size: 6rem;
         animation: sun-anime 3s linear infinite alternate;
     }
@@ -203,27 +203,43 @@
         <div class="wave -two"></div>
         <div class="wave -three"></div>
 
-        <div id="weatherIcon">
-            <i class="fa-solid fa-sun" style="color: #eccc68"></i>
+        <div id="weathercon">
+            <!-- <i class="fa-solid fa-sun" style="color: #eccc68"></i> -->
         </div>
 
         <div class="info">
             <h2 class="location">
                 <i class="fa-solid fa-street-view" style="color: #fff"></i>
-                Jhansi, In
+                {%location%}, {%country%}
             </h2>
-            <p id="date">FRI | FEB 10 | 13:30</p>
-            <h1 class="temp">31°C</h1>
-            <h3 class="tempMinMax">Min 26°C | Max 31°C</h3>
+            <p id="date"></p>
+            <h1 class="temp">{%tempval%}&deg;C</h1>
+            <h3 class="tempMinMax">Min {%tempmin%}&deg;C | Max {%tempmax%}&deg;C</h3>
         </div>
     </div>
 
 
     <script>
         const currDate = document.getElementById("date");
-        let weathercon = document.getElementById("weatherIcon");
+        let weathercon = document.getElementById("weathercon");
 
-        const tempStatus = 'Clouds';
+        const tempStatus = "{%tempstatus%}";
+
+        if(tempStatus == "Sunny"){
+            weathercon.innerHTML =
+            "<i class='fa-solid fa-sun' style='color: #eccc68';></i>" 
+        }else if(tempStatus == "Clouds"){
+            weathercon.innerHTML =
+            "<i class='fa-solid fa-cloud' style='color: #fff;'></i>" 
+        }else if(tempStatus == "Rainy"){
+            weathercon.innerHTML =
+            "<i class='fa-solid fa-cloud-rain' style='color: #a4b0be;'></i>" 
+        }else {
+            weathercon.innerHTML =
+            "<i class='fa-solid fa-cloud' style='color: #44c3de;'></i>" 
+        }
+
+
 
         const getCurrentDay = () => {
             const weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -252,7 +268,7 @@
                 mins = "0" + mins;
             }
             
-            return ` ${month} ${date} | ${hours}:${mins}${periods}`;
+            return ` ${month} ${date} | ${hours}:${mins} ${periods}`;
             // console.log(day + "/" + month);
         } 
 
