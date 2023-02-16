@@ -165,17 +165,17 @@
         color: #57606f;
     }
 
-    #weathercon {
-        height: 55%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 3rem;
+    #weatherIcon {
+        height: 55% !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        font-size: 6rem;
     }
 
-    #weathercon .fa-sun .fa-cloud .fa-cloud-rain{
-        font-size: 6rem;
-        animation: sun-anime 3s linear infinite alternate;
+    #weatherIcon .fa-sun .fa-cloud .fa-cloud-rain{
+        font-size: 6rem !important;
+        animation: sun-anime 3s linear infinite alternate !important;
     }
 
     @keyframes sun-anime {
@@ -203,8 +203,8 @@
         <div class="wave -two"></div>
         <div class="wave -three"></div>
 
-        <div id="weathercon">
-            <!-- <i class="fa-solid fa-sun" style="color: #eccc68"></i> -->
+        <div id="weatherIcon">
+            <i class="fa-solid fa-sun" style="color: #eccc68"></i>
         </div>
 
         <div class="info">
@@ -221,22 +221,22 @@
 
     <script>
         const currDate = document.getElementById("date");
-        let weathercon = document.getElementById("weathercon");
+        const weatherIcon = document.getElementById("weatherIcon");
 
         const tempStatus = "{%tempstatus%}";
 
         if(tempStatus == "Sunny"){
-            weathercon.innerHTML =
-            "<i class='fa-solid fa-sun' style='color: #eccc68';></i>" 
-        }else if(tempStatus == "Clouds"){
-            weathercon.innerHTML =
-            "<i class='fa-solid fa-cloud' style='color: #fff;'></i>" 
-        }else if(tempStatus == "Rainy"){
-            weathercon.innerHTML =
-            "<i class='fa-solid fa-cloud-rain' style='color: #a4b0be;'></i>" 
-        }else {
-            weathercon.innerHTML =
-            "<i class='fa-solid fa-cloud' style='color: #44c3de;'></i>" 
+            weatherIcon.innerHTML =
+            <i class='fa-solid fa-sun' style='color: #eccc68;'></i> 
+        } else if(tempStatus == "Clouds"){
+            weatherIcon.innerHTML =
+            <i class='fa-solid fa-cloud' style='color: #fff;'></i> 
+        } else if(tempStatus == "Rainy"){
+            weatherIcon.innerHTML =
+            <i class='fa-solid fa-cloud-rain' style='color: #a4b0be;'></i> 
+        } else {
+            weatherIcon.innerHTML =
+            <i class='fa-solid fa-cloud' style='color: #44c3de;'></i> 
         }
 
 
