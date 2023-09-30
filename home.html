@@ -194,6 +194,15 @@
             height: 80vh;
         }
     }
+#form_text .label{
+font-size: 20px;
+}
+    #form_text .input_text{
+        width: 100%;
+        padding: 5px 10px;
+        margin: 10px;
+
+    }
 </style>
 
 <body>
@@ -215,28 +224,44 @@
             <p id="date"></p>
             <h1 class="temp">{%tempval%}&deg;C</h1>
             <h3 class="tempMinMax">Min {%tempmin%}&deg;C | Max {%tempmax%}&deg;C</h3>
+          
+<!-- 
+            <form id="form_text">
+                <label for="name">Enter Your City</label>
+                <input class="input_text" id="input" type="text" name="name">
+                <button id="search_btn" onclick=`console.log(${%changeCity%})`>Search</button>
+            </form> -->
         </div>
+        
     </div>
 
 
     <script>
+    
         const currDate = document.getElementById("date");
         const weatherIcon = document.getElementById("weatherIcon");
 
+        // const input = document.getElementById("input");
+        // const changeCity = "{%input%}";
+
+
         const tempStatus = "{%tempstatus%}";
+
+
+
 
         if(tempStatus == "Sunny"){
             weatherIcon.innerHTML =
-            <i class='fa-solid fa-sun' style='color: #eccc68;'></i> 
+            <i class='fa-solid fa-sun' style='color: #eccc68;' />
         } else if(tempStatus == "Clouds"){
             weatherIcon.innerHTML =
-            <i class='fa-solid fa-cloud' style='color: #fff;'></i> 
+            <i class='fa-solid fa-cloud' style='color: #fff;' /> 
         } else if(tempStatus == "Rainy"){
             weatherIcon.innerHTML =
-            <i class='fa-solid fa-cloud-rain' style='color: #a4b0be;'></i> 
+            <i class='fa-solid fa-cloud-rain' style='color: #a4b0be;' />
         } else {
             weatherIcon.innerHTML =
-            <i class='fa-solid fa-cloud' style='color: #44c3de;'></i> 
+            <i class='fa-solid fa-cloud' style='color: #44c3de;' /> 
         }
 
 

@@ -9,6 +9,7 @@
   "author": "Sneha",
   "license": "ISC",
   "dependencies": {
+    "nodemon": "^3.0.1",
     "requests": "^0.3.0"
   }
 }
